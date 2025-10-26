@@ -7,20 +7,20 @@ import 'nextra-theme-docs/style.css'
 export const metadata = {
   metadataBase: new URL('https://nextra.site'),
   title: {
-    template: '%s - Nextra'
+    template: '%s - Stefan Novak'
   },
-  description: 'Nextra: the Next.js site builder',
+  description: 'Stefan Novak',
   applicationName: 'Nextra',
   generator: 'Next.js',
   appleWebApp: {
-    title: 'Nextra'
+    title: 'Stefan Novak'
   },
   other: {
     'msapplication-TileImage': '/ms-icon-144x144.png',
     'msapplication-TileColor': '#fff'
   },
   twitter: {
-    site: 'https://nextra.site'
+    site: 'https://x.com/stefannovak96'
   }
 }
 
@@ -29,12 +29,10 @@ export default async function RootLayout({ children }) {
     <Navbar
       logo={
         <div>
-          <b>Nextra</b>{' '}
-          <span style={{ opacity: '60%' }}>The Next Docs Builder</span>
+          <b>Stefan Novak</b>{' '}
+          <span style={{ opacity: '60%' }}>Fake docs</span>
         </div>
       }
-      // Next.js discord server
-      chatLink="https://discord.gg/hEM84NMkRv"
     />
   )
   const pageMap = await getPageMap()
@@ -43,11 +41,7 @@ export default async function RootLayout({ children }) {
       <Head faviconGlyph="✦" />
       <body>
         <Layout
-          banner={<Banner storageKey="Nextra 2">Nextra 2 Alpha</Banner>}
           navbar={navbar}
-          footer={<Footer>MIT {new Date().getFullYear()} © Nextra.</Footer>}
-          editLink="Edit this page on GitHub"
-          docsRepositoryBase="https://github.com/shuding/nextra/blob/main/examples/docs"
           sidebar={{ defaultMenuCollapseLevel: 1 }}
           pageMap={pageMap}
         >
