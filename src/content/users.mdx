@@ -1,6 +1,3 @@
-import ApiRightPanel from '../components/ApiRightPanel'
-import ApiPageLayout from '../components/ApiPageLayout'
-
 export const requestTabs = [
     {
         id: 'curl',
@@ -70,7 +67,12 @@ export const responseTabs = [
     }
 ];
 
-<ApiPageLayout rightPanel={<ApiRightPanel requestTabs={requestTabs} responseTabs={responseTabs} />}>
+export const metadata = {
+    rightPanelData: {
+        requestTabs,
+        responseTabs
+    }
+};
 
 # Users
 
@@ -137,5 +139,3 @@ Timestamp when the user account was created (ISO 8601 format).
 #### updatedAt
 
 Timestamp when the user account was last updated (ISO 8601 format).
-
-</ApiPageLayout>

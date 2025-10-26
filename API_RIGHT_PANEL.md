@@ -16,12 +16,9 @@ export default {
 }
 ```
 
-2. **Wrap content in ApiPageLayout**: In your MDX file, import and use the `ApiPageLayout` component:
+2. **Export metadata with right panel data**: In your MDX file, export the request and response tabs along with metadata:
 
 ```mdx
-import ApiRightPanel from '../components/ApiRightPanel'
-import ApiPageLayout from '../components/ApiPageLayout'
-
 export const requestTabs = [
   {
     id: 'curl',
@@ -42,19 +39,22 @@ export const responseTabs = [
   // ... more tabs
 ];
 
-<ApiPageLayout rightPanel={<ApiRightPanel requestTabs={requestTabs} responseTabs={responseTabs} />}>
+export const metadata = {
+  rightPanelData: {
+    requestTabs,
+    responseTabs
+  }
+};
 
 # Your Page Title
 
 Your content here...
-
-</ApiPageLayout>
 ```
 
 ## Components
 
-### ApiPageLayout
-A layout component that creates a two-column layout with content on the left and a right panel on the right (hidden on mobile, shown on desktop).
+### CustomWrapper
+A custom wrapper component that detects pages with `rightPanelData` in metadata and automatically renders them with a two-column layout.
 
 ### ApiRightPanel
 Displays request and response code examples with tabbed navigation for different programming languages and response codes.
