@@ -1,4 +1,9 @@
 export default {
   index: '',
-  'get-started': '',
+  'api-keys': '',
+  users: {
+    theme: {
+      toc: false
+    }
+  },
 }

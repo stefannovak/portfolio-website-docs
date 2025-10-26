@@ -1,0 +1,52 @@
+# API Keys
+
+Learn how to authenticate your API requests using API keys.
+
+## Getting Your API Key
+
+To use the Tally API, you'll need an API key. Here's how to get one:
+
+1. Log in to your Tally account
+2. Navigate to Settings → API
+3. Click "Create API Key"
+4. Give your key a descriptive name
+5. Copy and securely store your API key
+
+> **Warning:** Keep your API keys secure! Never share them publicly or commit them to version control. If you believe your key has been compromised, revoke it immediately and generate a new one.
+
+## Using Your API Key
+
+Include your API key in the `Authorization` header of every request:
+
+```bash
+curl --request GET \
+  --url https://api.tally.so/users/me \
+  --header 'Authorization: Bearer <token>'
+```
+
+## API Key Permissions
+
+API keys inherit the permissions of the user who created them. You can create multiple keys with different permission levels:
+
+- **Read-only**: Can only fetch data, cannot modify resources
+- **Read-write**: Can fetch and modify resources
+- **Admin**: Full access to all resources
+
+## Key Management Best Practices
+
+- Create separate keys for different applications or environments
+- Use read-only keys whenever possible
+- Rotate your keys regularly (recommended: every 90 days)
+- Delete keys that are no longer in use
+- Monitor key usage in your dashboard
+
+## Revoking API Keys
+
+If you need to revoke an API key:
+
+1. Go to Settings → API
+2. Find the key you want to revoke
+3. Click the "Revoke" button
+4. Confirm the action
+
+Once revoked, the key will immediately stop working and cannot be restored.

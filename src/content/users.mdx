@@ -1,0 +1,134 @@
+export const requestTabs = [
+    {
+        id: 'curl',
+        label: 'cURL',
+        code: `curl --request GET \\
+  --url https://api.tally.so/users/me \\
+  --header 'Authorization: Bearer <token>'`,
+        language: 'bash'
+    },
+    {
+        id: 'javascript',
+        label: 'JavaScript',
+        code: `fetch('https://api.tally.so/users/me', {
+  method: 'GET',
+  headers: {
+    'Authorization': 'Bearer <token>'
+  }
+})
+  .then(response => response.json())
+  .then(data => console.log(data));`,
+        language: 'javascript'
+    },
+    {
+        id: 'python',
+        label: 'Python',
+        code: `import requests
+
+url = "https://api.tally.so/users/me"
+headers = {
+    "Authorization": "Bearer <token>"
+}
+
+response = requests.get(url, headers=headers)
+print(response.json())`,
+        language: 'python'
+    }
+];
+
+export const responseTabs = [
+    {
+        id: '200',
+        label: '200',
+        body: `{
+  "id": "<string>",
+  "firstName": "<string>",
+  "lastName": "<string>",
+  "fullName": "<string>",
+  "email": "<string>",
+  "avatarUrl": "<string>",
+  "organizationId": "<string>",
+  "isDeleted": false,
+  "hasTwoFactorEnabled": true,
+  "createdAt": "2023-11-07T05:31:56Z",
+  "updatedAt": "2023-11-07T05:31:56Z",
+  "subscriptionPlan": "FREE"
+}`,
+        language: 'json'
+    },
+    {
+        id: '401',
+        label: '401',
+        body: `{
+  "error": "Unauthorized",
+  "message": "Invalid or expired token"
+}`,
+        language: 'json'
+    }
+];
+
+# Users
+
+## Fetching user info
+
+Returns information about the current authenticated user.
+
+```http
+GET /users/me
+```
+
+### Parameters
+
+#### Authorization (header, required)
+
+Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
+
+### Response Fields
+
+#### subscriptionPlan
+
+Available options: `FREE`, `PRO`, `BUSINESS`
+
+#### id
+
+Unique identifier for the user.
+
+#### firstName
+
+User's first name.
+
+#### lastName
+
+User's last name.
+
+#### fullName
+
+User's full name (concatenation of first and last name).
+
+#### email
+
+User's email address.
+
+#### avatarUrl
+
+URL to the user's profile avatar image.
+
+#### organizationId
+
+ID of the organization the user belongs to.
+
+#### isDeleted
+
+Boolean indicating if the user account has been deleted.
+
+#### hasTwoFactorEnabled
+
+Boolean indicating if two-factor authentication is enabled.
+
+#### createdAt
+
+Timestamp when the user account was created (ISO 8601 format).
+
+#### updatedAt
+
+Timestamp when the user account was last updated (ISO 8601 format).
